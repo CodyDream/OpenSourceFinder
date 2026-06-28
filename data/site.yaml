@@ -1,0 +1,134 @@
+# site.yaml – global site configuration
+
+navigation:
+  - label: Home
+    page: home
+  - label: Software
+    page: products
+  - label: About
+    page: about
+  - label: Contact
+    page: contact
+  - label: Blog
+    page: blog
+
+hero:
+  badge: '<i class="fas fa-star"></i> Curated for you'
+  title: 'Discover the best <span class="highlight">Open Source</span> tools'
+  subtitle: 'A handpicked collection of the most reputable open source softwares — trusted by developers, designers, and teams worldwide.'
+
+stats:
+  - label: Projects listed
+    value: 2847
+  - label: Contributors
+    value: 1243
+  - label: Downloads (monthly)
+    value: 5.2
+  - label: Satisfaction rate
+    value: 98
+
+featured:
+  - name: VS Code
+    description: Lightweight but powerful source code editor with built-in support for JavaScript, TypeScript, and more.
+    category: developer
+    icon: fa-solid fa-code
+    stars: 152
+    downloads: 2.4M
+    officialSite: https://code.visualstudio.com/
+    downloadUrl: https://code.visualstudio.com/download
+    documentation: https://code.visualstudio.com/docs
+    github: https://github.com/microsoft/vscode
+  - name: PostgreSQL
+    description: Advanced open source relational database with a strong reputation for reliability, data integrity, and performance.
+    category: data
+    icon: fa-solid fa-database
+    stars: 98
+    downloads: 1.1M
+    officialSite: https://www.postgresql.org/
+    downloadUrl: https://www.postgresql.org/download/
+    documentation: https://www.postgresql.org/docs/
+    github: https://github.com/postgres/postgres
+  - name: GIMP
+    description: Professional image manipulation tool with a rich feature set for photo retouching, composition, and more.
+    category: design
+    icon: fa-solid fa-paint-brush
+    stars: 73
+    downloads: 890K
+    officialSite: https://www.gimp.org/
+    downloadUrl: https://www.gimp.org/downloads/
+    documentation: https://www.gimp.org/docs/
+    github: https://gitlab.gnome.org/GNOME/gimp
+
+about:
+  title: Curating the best of open source
+  subtitle: We believe in the power of open source to transform how we build software. Our mission is to surface the most reputable tools.
+  storyTitle: Our story
+  storyParagraphs:
+    - Open Source Softwares was founded by a team of developers and designers who wanted to cut through the noise. With thousands of open source projects available, finding the truly great ones can be overwhelming.
+    - We've built a curated directory that highlights only the most reputable, well-maintained, and community-loved open source tools. Every project on our list has been vetted for quality, documentation, and active development.
+    - Today, we serve thousands of users who rely on our recommendations to power their workflows.
+  valuesTitle: Our values
+  valuesSubtitle: We're guided by a set of core values that shape everything we do — from how we curate projects to how we treat our community.
+  values:
+    - icon: fa-solid fa-shield-alt
+      title: Trustworthy
+      description: Every project is vetted for quality and security.
+    - icon: fa-solid fa-users
+      title: Community-first
+      description: We listen to our users and evolve with their needs.
+    - icon: fa-solid fa-gem
+      title: Curated quality
+      description: We surface only the best, not the most popular.
+    - icon: fa-solid fa-rocket
+      title: Innovation
+      description: We highlight tools that push boundaries.
+
+footer:
+  brand:
+    description: Find What you want in open source. A curated directory of the most reputable open source tools, vetted for quality and community impact.
+  columns:
+    - heading: Explore
+      links:
+        - label: Home
+          page: home
+        - label: Software
+          page: products
+        - label: About
+          page: about
+        - label: Contact
+          page: contact
+        - label: Blog
+          page: blog
+    - heading: Resources
+      links:
+        - label: Documentation
+          url: '#'
+        - label: Contributing
+          url: '#'
+        - label: Community
+          url: '#'
+        - label: Privacy Policy
+          url: '#'
+    - heading: Contact
+      links:
+        - label: hello@opensourcesoftwares.example
+          url: mailto:hello@opensourcesoftwares.example
+        - label: San Francisco, CA
+          url: '#'
+        - label: Response within 24h
+          url: '#'
+  social:
+    - label: GitHub
+      icon: fab fa-github
+      url: '#'
+    - label: Twitter
+      icon: fab fa-twitter
+      url: '#'
+    - label: LinkedIn
+      icon: fab fa-linkedin-in
+      url: '#'
+    - label: YouTube
+      icon: fab fa-youtube
+      url: '#'
+  copyright: '© 2026 Open Source Softwares. Built with <i class="fas fa-heart" style="color:var(--color-accent);"></i> for the community.'
+  credit: 'Open source forever &bull; <i class="fas fa-code"></i>'

@@ -1,0 +1,258 @@
+# software.yaml – complete list with tags and alternatives
+
+software:
+  - name: VS Code
+    description: Lightweight but powerful source code editor with built-in support for JavaScript, TypeScript, and more.
+    category: developer
+    icon: fa-solid fa-code
+    stars: 152
+    downloads: 2.4M
+    officialSite: https://code.visualstudio.com/
+    downloadUrl: https://code.visualstudio.com/download
+    documentation: https://code.visualstudio.com/docs
+    github: https://github.com/microsoft/vscode
+    tags:
+      - vscode
+      - editor
+      - ide
+      - microsoft
+      - code-editor
+    alternatives:
+      - Sublime Text
+      - Atom
+      - Notepad++
+
+  - name: PostgreSQL
+    description: Advanced open source relational database with a strong reputation for reliability, data integrity, and performance.
+    category: data
+    icon: fa-solid fa-database
+    stars: 98
+    downloads: 1.1M
+    officialSite: https://www.postgresql.org/
+    downloadUrl: https://www.postgresql.org/download/
+    documentation: https://www.postgresql.org/docs/
+    github: https://github.com/postgres/postgres
+    tags:
+      - postgresql
+      - database
+      - sql
+      - postgres
+      - rdbms
+    alternatives:
+      - MySQL
+      - Oracle Database
+      - Microsoft SQL Server
+
+  - name: GIMP
+    description: Professional image manipulation tool with a rich feature set for photo retouching, composition, and more.
+    category: design
+    icon: fa-solid fa-paint-brush
+    stars: 73
+    downloads: 890K
+    officialSite: https://www.gimp.org/
+    downloadUrl: https://www.gimp.org/downloads/
+    documentation: https://www.gimp.org/docs/
+    github: https://gitlab.gnome.org/GNOME/gimp
+    tags:
+      - gimp
+      - image-editor
+      - photoshop
+      - design
+      - photo-manipulation
+      - free
+    alternatives:
+      - Adobe Photoshop
+      - Affinity Photo
+      - Corel PaintShop Pro
+
+  - name: Jupyter
+    description: Open source interactive notebook environment for data science, machine learning, and scientific computing.
+    category: data
+    icon: fa-solid fa-flask
+    stars: 112
+    downloads: 1.8M
+    officialSite: https://jupyter.org/
+    downloadUrl: https://jupyter.org/install
+    documentation: https://jupyter.org/documentation
+    github: https://github.com/jupyter/jupyter
+    tags:
+      - jupyter
+      - notebook
+      - data-science
+      - python
+      - machine-learning
+    alternatives:
+      - Google Colab
+      - RStudio
+      - MATLAB
+
+  - name: Godot Engine
+    description: Feature-packed, cross-platform game engine for 2D and 3D games with a thriving community.
+    category: developer
+    icon: fa-solid fa-gamepad
+    stars: 87
+    downloads: 620K
+    officialSite: https://godotengine.org/
+    downloadUrl: https://godotengine.org/download
+    documentation: https://docs.godotengine.org/
+    github: https://github.com/godotengine/godot
+    tags:
+      - godot
+      - game-engine
+      - 2d
+      - 3d
+      - unity
+      - unreal
+    alternatives:
+      - Unity
+      - Unreal Engine
+      - GameMaker
+
+  - name: OBS Studio
+    description: Free and open source software for video recording and live streaming with powerful scene composition.
+    category: productivity
+    icon: fa-solid fa-video
+    stars: 64
+    downloads: 1.4M
+    officialSite: https://obsproject.com/
+    downloadUrl: https://obsproject.com/download
+    documentation: https://obsproject.com/wiki/
+    github: https://github.com/obsproject/obs-studio
+    tags:
+      - obs
+      - streaming
+      - recording
+      - video
+      - broadcaster
+    alternatives:
+      - Streamlabs Desktop
+      - XSplit
+      - vMix
+
+  - name: Figma (Community)
+    description: Collaborative interface design tool with an open source community of plugins, templates, and resources.
+    category: design
+    icon: fa-solid fa-pen-fancy
+    stars: 41
+    downloads: 510K
+    officialSite: https://www.figma.com/
+    downloadUrl: https://www.figma.com/downloads/
+    documentation: https://www.figma.com/resources/
+    github: https://github.com/figma
+    tags:
+      - figma
+      - ui-design
+      - ux
+      - prototyping
+      - collaboration
+    alternatives:
+      - Adobe XD
+      - Sketch
+      - InVision
+
+  - name: Docker
+    description: Open platform for developing, shipping, and running applications in containers — revolutionizing DevOps.
+    category: developer
+    icon: fa-solid fa-ship
+    stars: 203
+    downloads: 3.2M
+    officialSite: https://www.docker.com/
+    downloadUrl: https://www.docker.com/products/docker-desktop/
+    documentation: https://docs.docker.com/
+    github: https://github.com/docker
+    tags:
+      - docker
+      - container
+      - devops
+      - kubernetes
+      - virtualization
+    alternatives:
+      - Podman
+      - LXC
+      - rkt
+
+  - name: LibreOffice
+    description: Powerful open source office suite with word processing, spreadsheets, presentations, and more.
+    category: productivity
+    icon: fa-solid fa-file-alt
+    stars: 56
+    downloads: 2.1M
+    officialSite: https://www.libreoffice.org/
+    downloadUrl: https://www.libreoffice.org/download/download/
+    documentation: https://www.libreoffice.org/get-help/documentation/
+    github: https://github.com/LibreOffice
+    tags:
+      - libreoffice
+      - office
+      - documents
+      - spreadsheets
+      - presentations
+      - microsoft-office
+    alternatives:
+      - Microsoft Office
+      - Google Workspace
+      - OnlyOffice
+
+  - name: TensorFlow
+    description: End-to-end open source platform for machine learning with a comprehensive ecosystem of tools and libraries.
+    category: data
+    icon: fa-solid fa-brain
+    stars: 178
+    downloads: 2.7M
+    officialSite: https://www.tensorflow.org/
+    downloadUrl: https://www.tensorflow.org/install
+    documentation: https://www.tensorflow.org/learn
+    github: https://github.com/tensorflow/tensorflow
+    tags:
+      - tensorflow
+      - machine-learning
+      - deep-learning
+      - ai
+      - python
+    alternatives:
+      - PyTorch
+      - JAX
+      - Apache MXNet
+
+  - name: Blender
+    description: Open source 3D creation suite supporting modeling, animation, rendering, compositing, and more.
+    category: design
+    icon: fa-solid fa-cube
+    stars: 94
+    downloads: 1.6M
+    officialSite: https://www.blender.org/
+    downloadUrl: https://www.blender.org/download/
+    documentation: https://docs.blender.org/
+    github: https://github.com/blender/blender
+    tags:
+      - blender
+      - 3d
+      - animation
+      - modeling
+      - maya
+      - cinema4d
+    alternatives:
+      - Autodesk Maya
+      - Cinema 4D
+      - 3ds Max
+
+  - name: Notion (API)
+    description: Open source integrations and community tools built around the Notion API for productivity and automation.
+    category: productivity
+    icon: fa-solid fa-clipboard-list
+    stars: 38
+    downloads: 320K
+    officialSite: https://www.notion.so/
+    downloadUrl: https://www.notion.so/api
+    documentation: https://developers.notion.com/
+    github: https://github.com/notion
+    tags:
+      - notion
+      - productivity
+      - api
+      - automation
+      - workspace
+    alternatives:
+      - Obsidian
+      - Coda
+      - ClickUp

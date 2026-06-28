@@ -1,0 +1,19 @@
+# blog.yaml – blog posts
+
+posts:
+  - title: Why open source is the future of software
+    excerpt: From AI to web development, open source is driving innovation at every level. Here's why the future is open.
+    date: Mar 15, 2026
+    icon: fa-solid fa-rocket
+  - title: How to choose the right open source database
+    excerpt: A practical guide to evaluating PostgreSQL, MySQL, MongoDB, and more for your next project.
+    date: Feb 28, 2026
+    icon: fa-solid fa-database
+  - title: Design tools that are open source and free
+    excerpt: GIMP, Blender, Inkscape, and more — a roundup of the best free and open source design tools.
+    date: Feb 10, 2026
+    icon: fa-solid fa-paint-brush
+  - title: Getting started with open source contributions
+    excerpt: Your first contribution can be intimidating. Here's a step-by-step guide to making your mark.
+    date: Jan 22, 2026
+    icon: fa-solid fa-hands-helping
