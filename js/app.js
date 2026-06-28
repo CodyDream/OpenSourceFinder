@@ -5,7 +5,7 @@
 
 (async function initApp() {
     // Load site.yaml
-    const siteData = await loadYaml('data/site.yaml');
+  const siteData = await loadYaml('data/site.yaml');
     if (!siteData) {
         console.error('Failed to load site.yaml – check your server.');
         document.getElementById('pageContent').innerHTML = `

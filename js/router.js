@@ -13,13 +13,13 @@ function initRouter(data, renderPage) {
     function navigateTo(page, replaceState = false) {
         if (page === currentPage && page !== 'home') return;
 
-        const pageDataMap = {
-            home: 'data/testimonials.yaml',
-            products: 'data/software.yaml',
-            about: null,
-            contact: null,
-            blog: 'data/blog.yaml'
-        };
+const pageDataMap = {
+    home: 'data/testimonials.yaml',   // already correct
+    products: 'data/software.yaml',   // already correct
+    about: null,
+    contact: null,
+    blog: 'data/blog.yaml'            // already correct
+};
 
         const yamlUrl = pageDataMap[page];
         if (yamlUrl) {
