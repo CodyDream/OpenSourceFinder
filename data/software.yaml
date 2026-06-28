@@ -1,8 +1,8 @@
-# software.yaml – complete list with tags and alternatives
-
 software:
   - name: VS Code
-    description: Lightweight but powerful source code editor with built-in support for JavaScript, TypeScript, and more.
+    description: >-
+      Lightweight but powerful source code editor with built-in support for
+      JavaScript, TypeScript, and more.
     category: developer
     icon: fa-solid fa-code
     stars: 152
@@ -15,15 +15,15 @@ software:
       - vscode
       - editor
       - ide
-      - microsoft
-      - code-editor
     alternatives:
       - Sublime Text
       - Atom
-      - Notepad++
-
+      - jet brain rider
+      - visual studio
   - name: PostgreSQL
-    description: Advanced open source relational database with a strong reputation for reliability, data integrity, and performance.
+    description: >-
+      Advanced open source relational database with a strong reputation for
+      reliability, data integrity, and performance.
     category: data
     icon: fa-solid fa-database
     stars: 98
@@ -36,15 +36,13 @@ software:
       - postgresql
       - database
       - sql
-      - postgres
-      - rdbms
     alternatives:
       - MySQL
-      - Oracle Database
-      - Microsoft SQL Server
-
+      - Oracle
   - name: GIMP
-    description: Professional image manipulation tool with a rich feature set for photo retouching, composition, and more.
+    description: >-
+      Professional image manipulation tool with a rich feature set for photo
+      retouching, composition, and more.
     category: design
     icon: fa-solid fa-paint-brush
     stars: 73
@@ -57,16 +55,13 @@ software:
       - gimp
       - image-editor
       - photoshop
-      - design
-      - photo-manipulation
-      - free
     alternatives:
       - Adobe Photoshop
       - Affinity Photo
-      - Corel PaintShop Pro
-
   - name: Jupyter
-    description: Open source interactive notebook environment for data science, machine learning, and scientific computing.
+    description: >-
+      Open source interactive notebook environment for data science, machine
+      learning, and scientific computing.
     category: data
     icon: fa-solid fa-flask
     stars: 112
@@ -79,15 +74,13 @@ software:
       - jupyter
       - notebook
       - data-science
-      - python
-      - machine-learning
     alternatives:
       - Google Colab
       - RStudio
-      - MATLAB
-
   - name: Godot Engine
-    description: Feature-packed, cross-platform game engine for 2D and 3D games with a thriving community.
+    description: >-
+      Feature-packed, cross-platform game engine for 2D and 3D games with a
+      thriving community.
     category: developer
     icon: fa-solid fa-gamepad
     stars: 87
@@ -99,17 +92,14 @@ software:
     tags:
       - godot
       - game-engine
-      - 2d
-      - 3d
       - unity
-      - unreal
     alternatives:
       - Unity
       - Unreal Engine
-      - GameMaker
-
   - name: OBS Studio
-    description: Free and open source software for video recording and live streaming with powerful scene composition.
+    description: >-
+      Free and open source software for video recording and live streaming with
+      powerful scene composition.
     category: productivity
     icon: fa-solid fa-video
     stars: 64
@@ -122,36 +112,13 @@ software:
       - obs
       - streaming
       - recording
-      - video
-      - broadcaster
     alternatives:
       - Streamlabs Desktop
       - XSplit
-      - vMix
-
-  - name: Figma (Community)
-    description: Collaborative interface design tool with an open source community of plugins, templates, and resources.
-    category: design
-    icon: fa-solid fa-pen-fancy
-    stars: 41
-    downloads: 510K
-    officialSite: https://www.figma.com/
-    downloadUrl: https://www.figma.com/downloads/
-    documentation: https://www.figma.com/resources/
-    github: https://github.com/figma
-    tags:
-      - figma
-      - ui-design
-      - ux
-      - prototyping
-      - collaboration
-    alternatives:
-      - Adobe XD
-      - Sketch
-      - InVision
-
   - name: Docker
-    description: Open platform for developing, shipping, and running applications in containers — revolutionizing DevOps.
+    description: >-
+      Open platform for developing, shipping, and running applications in
+      containers — revolutionizing DevOps.
     category: developer
     icon: fa-solid fa-ship
     stars: 203
@@ -164,15 +131,13 @@ software:
       - docker
       - container
       - devops
-      - kubernetes
-      - virtualization
     alternatives:
       - Podman
       - LXC
-      - rkt
-
   - name: LibreOffice
-    description: Powerful open source office suite with word processing, spreadsheets, presentations, and more.
+    description: >-
+      Powerful open source office suite with word processing, spreadsheets,
+      presentations, and more.
     category: productivity
     icon: fa-solid fa-file-alt
     stars: 56
@@ -184,17 +149,14 @@ software:
     tags:
       - libreoffice
       - office
-      - documents
-      - spreadsheets
-      - presentations
       - microsoft-office
     alternatives:
       - Microsoft Office
       - Google Workspace
-      - OnlyOffice
-
   - name: TensorFlow
-    description: End-to-end open source platform for machine learning with a comprehensive ecosystem of tools and libraries.
+    description: >-
+      End-to-end open source platform for machine learning with a comprehensive
+      ecosystem of tools and libraries.
     category: data
     icon: fa-solid fa-brain
     stars: 178
@@ -206,16 +168,14 @@ software:
     tags:
       - tensorflow
       - machine-learning
-      - deep-learning
       - ai
-      - python
     alternatives:
       - PyTorch
       - JAX
-      - Apache MXNet
-
   - name: Blender
-    description: Open source 3D creation suite supporting modeling, animation, rendering, compositing, and more.
+    description: >-
+      Open source 3D creation suite supporting modeling, animation, rendering,
+      compositing, and more.
     category: design
     icon: fa-solid fa-cube
     stars: 94
@@ -228,31 +188,227 @@ software:
       - blender
       - 3d
       - animation
-      - modeling
-      - maya
-      - cinema4d
     alternatives:
       - Autodesk Maya
       - Cinema 4D
-      - 3ds Max
-
-  - name: Notion (API)
-    description: Open source integrations and community tools built around the Notion API for productivity and automation.
-    category: productivity
-    icon: fa-solid fa-clipboard-list
-    stars: 38
-    downloads: 320K
-    officialSite: https://www.notion.so/
-    downloadUrl: https://www.notion.so/api
-    documentation: https://developers.notion.com/
-    github: https://github.com/notion
+  - name: Krita
+    description: >-
+      An incredibly powerful digital painting application built by artists, for
+      artists. It is widely considered the best open-source alternative to core
+      features in Photoshop or Clip Studio Paint for concept art, texture
+      painting, and illustrations.
+    category: design
+    icon: fa-solid fa-palette
+    stars: 9.5K
+    downloads: 1M+
+    officialSite: https://krita.org
+    downloadUrl: https://krita.org/download/krita-desktop/
+    documentation: https://docs.krita.org
+    github: https://github.com/KDE/krita
     tags:
-      - notion
-      - productivity
-      - api
-      - automation
-      - workspace
+      - art
+      - painting
+      - illustration
+      - animation
+      - open-source
     alternatives:
+      - Adobe Photoshop
+      - Clip Studio Paint
+      - Corel Painter
+  - name: Inkscape
+    description: >-
+      A professional vector graphics editor used by design professionals and hobbyists
+      worldwide for creating illustrations, icons, logos, diagrams, maps, and web graphics.
+    category: design
+    icon: fa-solid fa-vector-square
+    stars: 6K
+    downloads: 10M+
+    officialSite: https://inkscape.org
+    downloadUrl: https://inkscape.org/release/
+    documentation: https://inkscape.org/learn/documentation/
+    github: https://gitlab.com/inkscape/inkscape
+    tags:
+      - vector-graphics
+      - design
+      - svg
+      - illustrator
+      - graphic-design
+    alternatives:
+      - Adobe Illustrator
+      - CorelDRAW
+      - Affinity Designer
+  - name: VLC Media Player
+    description: >-
+      A free and open-source cross-platform multimedia player and framework that
+      plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various
+      streaming protocols.
+    category: productivity
+    icon: fa-solid fa-video
+    stars: 11K
+    downloads: 4B+
+    officialSite: https://www.videolan.org/vlc/
+    downloadUrl: https://www.videolan.org/vlc/#download
+    documentation: https://wiki.videolan.org/Documentation:User_Guide/
+    github: https://github.com/videolan/vlc
+    tags:
+      - media-player
+      - video
+      - audio
+      - streaming
+      - multi-platform
+    alternatives:
+      - Windows Media Player
+      - QuickTime
+      - KMPlayer
+      - PotPlayer
+  - name: Bitwarden
+    description: >-
+      An open-source password management service that stores sensitive credentials
+      such as website passwords in an encrypted vault, offering cross-platform client applications.
+    category: productivity
+    icon: fa-solid fa-vault
+    stars: 17.5K
+    downloads: 5M+
+    officialSite: https://bitwarden.com
+    downloadUrl: https://bitwarden.com/download/
+    documentation: https://bitwarden.com/help/
+    github: https://github.com/bitwarden/clients
+    tags:
+      - password-manager
+      - security
+      - privacy
+      - encryption
+      - credentials
+    alternatives:
+      - 1Password
+      - LastPass
+      - Dashlane
+      - KeePass
+  - name: Kubernetes
+    description: >-
+      An open-source container-orchestration system for automating computer application
+      deployment, scaling, and management, originally designed by Google.
+    category: developer
+    icon: fa-brands fa-docker
+    stars: 108K
+    downloads: 50M+
+    officialSite: https://kubernetes.io
+    downloadUrl: https://kubernetes.io/docs/tasks/tools/
+    documentation: https://kubernetes.io/docs/
+    github: https://github.com/kubernetes/kubernetes
+    tags:
+      - container-orchestration
+      - devops
+      - cloud-native
+      - docker
+      - microservices
+    alternatives:
+      - Amazon ECS
+      - Docker Swarm
+      - Nomad
+  - name: Redis
+    description: >-
+      An open-source, in-memory data structure store used as a distributed,
+      in-memory key–value database, cache, and message broker.
+    category: data
+    icon: fa-solid fa-database
+    stars: 64K
+    downloads: 1B+
+    officialSite: https://redis.io
+    downloadUrl: https://redis.io/download/
+    documentation: https://redis.io/docs/
+    github: https://github.com/redis/redis
+    tags:
+      - database
+      - caching
+      - key-value
+      - nosql
+      - in-memory
+    alternatives:
+      - Memcached
+      - Hazelcast
+      - Dragonfly
+  - name: Immich
+    description: >-
+      High-performance self-hosted photo and video backup and management solution
+      featuring facial recognition, CLIP-based search, and native mobile apps.
+    category: productivity
+    icon: fa-solid fa-images
+    stars: 105K
+    downloads: 5M+
+    officialSite: https://immich.app
+    downloadUrl: https://immich.app/docs/install/docker-compose
+    documentation: https://immich.app/docs/overview
+    github: https://github.com/immich-app/immich
+    tags:
+      - photos
+      - backup
+      - self-hosted
+      - media-gallery
+    alternatives:
+      - Google Photos
+      - Apple Photos
+      - Nextcloud Photos
+  - name: Penpot
+    description: >-
+      The first open-source, web-based design and prototyping platform built
+      directly on web standards like SVG and CSS to bridge the gap between designers and devs.
+    category: design
+    icon: fa-solid fa-bezier-curve
+    stars: 54.4K
+    downloads: 2M+
+    officialSite: https://penpot.app
+    downloadUrl: https://penpot.app/self-host
+    documentation: https://help.penpot.app/docs
+    github: https://github.com/penpot/penpot
+    tags:
+      - ui-design
+      - prototyping
+      - figma-alternative
+      - vector
+    alternatives:
+      - Figma
+      - Adobe XD
+      - Sketch
+  - name: AppFlowy
+    description: >-
+      A modern, secure collaborative workspace built with Flutter and Rust, allowing users 
+      to manage projects, wikis, and tasks while maintaining total data ownership.
+    category: productivity
+    icon: fa-solid fa-file-invoice
+    stars: 50K
+    downloads: 1.5M+
+    officialSite: https://www.appflowy.io
+    downloadUrl: https://www.appflowy.io/download
+    documentation: https://docs.appflowy.io
+    github: https://github.com/AppFlowy-IO/AppFlowy
+    tags:
+      - workspace
+      - notion-alternative
+      - task-management
+      - notes
+    alternatives:
+      - Notion
       - Obsidian
-      - Coda
-      - ClickUp
+      - Monday.com
+  - name: shadcn/ui
+    description: >-
+      Beautifully designed components that you can copy and paste into your apps.
+      Accessible, customizable, and open-source, it gives developers absolute control over their code.
+    category: developer
+    icon: fa-solid fa-layer-group
+    stars: 116K
+    downloads: 12M+
+    officialSite: https://ui.shadcn.com
+    downloadUrl: https://ui.shadcn.com/docs/installation
+    documentation: https://ui.shadcn.com/docs
+    github: https://github.com/shadcn-ui/ui
+    tags:
+      - ui-components
+      - react
+      - tailwind-css
+      - frontend
+    alternatives:
+      - Material UI
+      - Chakra UI
+      - Tailwind UI

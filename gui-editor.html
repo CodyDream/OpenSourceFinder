@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Edit Software Catalog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #1c1c1e;
+            color: #f5f0e8;
+            padding: 40px 24px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #b8b0a8;
+            margin-bottom: 32px;
+        }
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .btn {
+            padding: 10px 24px;
+            border-radius: 40px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary {
+            background: #b87333;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #d49a5a;
+            transform: scale(1.02);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #f5f0e8;
+            border: 1px solid rgba(184, 115, 51, 0.3);
+        }
+        .btn-outline:hover {
+            background: rgba(184, 115, 51, 0.1);
+        }
+        .btn-danger {
+            background: #ff4444;
+            color: #fff;
+        }
+        .btn-danger:hover {
+            background: #ff6666;
+        }
+        .btn-success {
+            background: #44bb66;
+            color: #fff;
+        }
+        .btn-success:hover {
+            background: #66dd88;
+        }
+        .card {
+            background: rgba(44, 44, 46, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(184, 115, 51, 0.2);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .card .info {
+            flex: 1;
+        }
+        .card .info strong {
+            font-size: 1.1rem;
+        }
+        .card .info .tag {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 40px;
+            background: rgba(184, 115, 51, 0.15);
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #d49a5a;
+            text-transform: uppercase;
+            margin-left: 8px;
+        }
+        .card .info .desc {
+            color: #b8b0a8;
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+        .card .actions {
+            display: flex;
+            gap: 8px;
+        }
+        .card .actions .btn {
+            padding: 6px 14px;
+            font-size: 0.8rem;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #b8b0a8;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: #2c2c2e;
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(184, 115, 51, 0.2);
+        }
+        .modal-content h2 {
+            margin-bottom: 20px;
+        }
+        .modal-content label {
+            display: block;
+            margin-top: 14px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #b8b0a8;
+        }
+        .modal-content input,
+        .modal-content textarea,
+        .modal-content select {
+            width: 100%;
+            padding: 10px 14px;
+            margin-top: 4px;
+            border-radius: 10px;
+            border: 1px solid rgba(184, 115, 51, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: #f5f0e8;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        .modal-content textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .modal-content .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .modal-footer {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            justify-content: flex-end;
+        }
+        .badge {
+            font-size: 0.75rem;
+            color: #b8b0a8;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stats .stat-card {
+            background: rgba(44, 44, 46, 0.6);
+            padding: 16px 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(184, 115, 51, 0.1);
+        }
+        .stats .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #b87333;
+        }
+        .stats .stat-card .label {
+            font-size: 0.8rem;
+            color: #b8b0a8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Software Catalog Admin</h1>
+        <p class="subtitle">Add, edit, or remove software entries. Changes are saved to your browser's localStorage.</p>
+
+        <div class="stats" id="stats"></div>
+
+        <div class="toolbar">
+            <button class="btn btn-primary" onclick="openAddModal()">
+                <i class="fas fa-plus"></i> Add Software
+            </button>
+            <button class="btn btn-outline" onclick="exportYAML()">
+                <i class="fas fa-download"></i> Export YAML
+            </button>
+            <button class="btn btn-outline" onclick="importYAML()">
+                <i class="fas fa-upload"></i> Import YAML
+            </button>
+            <button class="btn btn-outline" onclick="resetData()">
+                <i class="fas fa-undo"></i> Reset to Default
+            </button>
+        </div>
+
+        <div id="softwareList"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add Software</h2>
+            <form id="modalForm" onsubmit="saveSoftware(event)">
+                <input type="hidden" id="editIndex" value="-1" />
+                
+                <label>Name *</label>
+                <input type="text" id="f_name" required placeholder="e.g., VS Code" />
+
+                <label>Description *</label>
+                <textarea id="f_description" required placeholder="Brief description..."></textarea>
+
+                <label>Category</label>
+                <select id="f_category">
+                    <option value="developer">Developer</option>
+                    <option value="design">Design</option>
+                    <option value="data">Data</option>
+                    <option value="productivity">Productivity</option>
+                    <option value="general">General</option>
+                </select>
+
+                <label>Icon (Font Awesome class)</label>
+                <input type="text" id="f_icon" placeholder="fas fa-code" value="fas fa-cube" />
+
+                <div class="form-row">
+                    <div>
+                        <label>Stars</label>
+                        <input type="number" id="f_stars" placeholder="152" value="0" />
+                    </div>
+                    <div>
+                        <label>Downloads</label>
+                        <input type="text" id="f_downloads" placeholder="2.4M" value="0" />
+                    </div>
+                </div>
+
+                <label>Official Website</label>
+                <input type="url" id="f_officialSite" placeholder="https://example.com" />
+
+                <label>Download URL</label>
+                <input type="url" id="f_downloadUrl" placeholder="https://example.com/download" />
+
+                <label>Documentation URL</label>
+                <input type="url" id="f_documentation" placeholder="https://example.com/docs" />
+
+                <label>GitHub URL</label>
+                <input type="url" id="f_github" placeholder="https://github.com/example" />
+
+                <label>Tags (comma separated)</label>
+                <input type="text" id="f_tags" placeholder="vscode, editor, ide" />
+
+                <label>Alternatives (comma separated)</label>
+                <input type="text" id="f_alternatives" placeholder="Sublime Text, Atom" />
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script>
+        // Default data (from your original software.yaml)
+        const DEFAULT_SOFTWARE = {
+            software: [
+                { name: "VS Code", description: "Lightweight but powerful source code editor with built-in support for JavaScript, TypeScript, and more.", category: "developer", icon: "fa-solid fa-code", stars: 152, downloads: "2.4M", officialSite: "https://code.visualstudio.com/", downloadUrl: "https://code.visualstudio.com/download", documentation: "https://code.visualstudio.com/docs", github: "https://github.com/microsoft/vscode", tags: ["vscode", "editor", "ide"], alternatives: ["Sublime Text", "Atom"] },
+                { name: "PostgreSQL", description: "Advanced open source relational database with a strong reputation for reliability, data integrity, and performance.", category: "data", icon: "fa-solid fa-database", stars: 98, downloads: "1.1M", officialSite: "https://www.postgresql.org/", downloadUrl: "https://www.postgresql.org/download/", documentation: "https://www.postgresql.org/docs/", github: "https://github.com/postgres/postgres", tags: ["postgresql", "database", "sql"], alternatives: ["MySQL", "Oracle"] },
+                { name: "GIMP", description: "Professional image manipulation tool with a rich feature set for photo retouching, composition, and more.", category: "design", icon: "fa-solid fa-paint-brush", stars: 73, downloads: "890K", officialSite: "https://www.gimp.org/", downloadUrl: "https://www.gimp.org/downloads/", documentation: "https://www.gimp.org/docs/", github: "https://gitlab.gnome.org/GNOME/gimp", tags: ["gimp", "image-editor", "photoshop"], alternatives: ["Adobe Photoshop", "Affinity Photo"] },
+                { name: "Jupyter", description: "Open source interactive notebook environment for data science, machine learning, and scientific computing.", category: "data", icon: "fa-solid fa-flask", stars: 112, downloads: "1.8M", officialSite: "https://jupyter.org/", downloadUrl: "https://jupyter.org/install", documentation: "https://jupyter.org/documentation", github: "https://github.com/jupyter/jupyter", tags: ["jupyter", "notebook", "data-science"], alternatives: ["Google Colab", "RStudio"] },
+                { name: "Godot Engine", description: "Feature-packed, cross-platform game engine for 2D and 3D games with a thriving community.", category: "developer", icon: "fa-solid fa-gamepad", stars: 87, downloads: "620K", officialSite: "https://godotengine.org/", downloadUrl: "https://godotengine.org/download", documentation: "https://docs.godotengine.org/", github: "https://github.com/godotengine/godot", tags: ["godot", "game-engine", "unity"], alternatives: ["Unity", "Unreal Engine"] },
+                { name: "OBS Studio", description: "Free and open source software for video recording and live streaming with powerful scene composition.", category: "productivity", icon: "fa-solid fa-video", stars: 64, downloads: "1.4M", officialSite: "https://obsproject.com/", downloadUrl: "https://obsproject.com/download", documentation: "https://obsproject.com/wiki/", github: "https://github.com/obsproject/obs-studio", tags: ["obs", "streaming", "recording"], alternatives: ["Streamlabs Desktop", "XSplit"] },
+                { name: "Docker", description: "Open platform for developing, shipping, and running applications in containers — revolutionizing DevOps.", category: "developer", icon: "fa-solid fa-ship", stars: 203, downloads: "3.2M", officialSite: "https://www.docker.com/", downloadUrl: "https://www.docker.com/products/docker-desktop/", documentation: "https://docs.docker.com/", github: "https://github.com/docker", tags: ["docker", "container", "devops"], alternatives: ["Podman", "LXC"] },
+                { name: "LibreOffice", description: "Powerful open source office suite with word processing, spreadsheets, presentations, and more.", category: "productivity", icon: "fa-solid fa-file-alt", stars: 56, downloads: "2.1M", officialSite: "https://www.libreoffice.org/", downloadUrl: "https://www.libreoffice.org/download/download/", documentation: "https://www.libreoffice.org/get-help/documentation/", github: "https://github.com/LibreOffice", tags: ["libreoffice", "office", "microsoft-office"], alternatives: ["Microsoft Office", "Google Workspace"] },
+                { name: "TensorFlow", description: "End-to-end open source platform for machine learning with a comprehensive ecosystem of tools and libraries.", category: "data", icon: "fa-solid fa-brain", stars: 178, downloads: "2.7M", officialSite: "https://www.tensorflow.org/", downloadUrl: "https://www.tensorflow.org/install", documentation: "https://www.tensorflow.org/learn", github: "https://github.com/tensorflow/tensorflow", tags: ["tensorflow", "machine-learning", "ai"], alternatives: ["PyTorch", "JAX"] },
+                { name: "Blender", description: "Open source 3D creation suite supporting modeling, animation, rendering, compositing, and more.", category: "design", icon: "fa-solid fa-cube", stars: 94, downloads: "1.6M", officialSite: "https://www.blender.org/", downloadUrl: "https://www.blender.org/download/", documentation: "https://docs.blender.org/", github: "https://github.com/blender/blender", tags: ["blender", "3d", "animation"], alternatives: ["Autodesk Maya", "Cinema 4D"] }
+            ]
+        };
+
+        // Get data from localStorage or use default
+        function getData() {
+            const stored = localStorage.getItem('softwareData');
+            if (stored) {
+                try {
+                    const parsed = JSON.parse(stored);
+                    if (parsed && parsed.software && parsed.software.length > 0) {
+                        return parsed;
+                    }
+                } catch (e) {}
+            }
+            return JSON.parse(JSON.stringify(DEFAULT_SOFTWARE));
+        }
+
+        function saveData(data) {
+            localStorage.setItem('softwareData', JSON.stringify(data));
+            renderList();
+            updateStats();
+        }
+
+        function renderList() {
+            const data = getData();
+            const list = document.getElementById('softwareList');
+            if (!data.software || data.software.length === 0) {
+                list.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-box" style="font-size:3rem;opacity:0.3;display:block;margin-bottom:16px;"></i>
+                        <p>No software entries yet. Click "Add Software" to get started!</p>
+                    </div>
+                `;
+                return;
+            }
+            list.innerHTML = data.software.map((item, index) => `
+                <div class="card">
+                    <div class="info">
+                        <strong>${item.name}</strong>
+                        <span class="tag">${item.category || 'general'}</span>
+                        ${item.tags && item.tags.length > 0 ? `<span class="badge">🏷️ ${item.tags.slice(0, 3).join(', ')}</span>` : ''}
+                        <div class="desc">${item.description}</div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn btn-outline" onclick="openEditModal(${index})">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-danger" onclick="deleteSoftware(${index})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateStats() {
+            const data = getData();
+            const stats = document.getElementById('stats');
+            const count = data.software ? data.software.length : 0;
+            const categories = {};
+            data.software && data.software.forEach(item => {
+                const cat = item.category || 'general';
+                categories[cat] = (categories[cat] || 0) + 1;
+            });
+            stats.innerHTML = `
+                <div class="stat-card"><div class="number">${count}</div><div class="label">Total Software</div></div>
+                ${Object.entries(categories).map(([cat, count]) => `
+                    <div class="stat-card"><div class="number">${count}</div><div class="label">${cat}</div></div>
+                `).join('')}
+            `;
+        }
+
+        function openAddModal() {
+            document.getElementById('modalTitle').textContent = 'Add Software';
+            document.getElementById('editIndex').value = '-1';
+            document.getElementById('modalForm').reset();
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function openEditModal(index) {
+            const data = getData();
+            const item = data.software[index];
+            if (!item) return;
+            document.getElementById('modalTitle').textContent = 'Edit Software';
+            document.getElementById('editIndex').value = index;
+            document.getElementById('f_name').value = item.name || '';
+            document.getElementById('f_description').value = item.description || '';
+            document.getElementById('f_category').value = item.category || 'general';
+            document.getElementById('f_icon').value = item.icon || 'fas fa-cube';
+            document.getElementById('f_stars').value = item.stars || 0;
+            document.getElementById('f_downloads').value = item.downloads || '0';
+            document.getElementById('f_officialSite').value = item.officialSite || '';
+            document.getElementById('f_downloadUrl').value = item.downloadUrl || '';
+            document.getElementById('f_documentation').value = item.documentation || '';
+            document.getElementById('f_github').value = item.github || '';
+            document.getElementById('f_tags').value = (item.tags || []).join(', ');
+            document.getElementById('f_alternatives').value = (item.alternatives || []).join(', ');
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        function saveSoftware(e) {
+            e.preventDefault();
+            const data = getData();
+            const index = parseInt(document.getElementById('editIndex').value);
+            
+            const item = {
+                name: document.getElementById('f_name').value.trim(),
+                description: document.getElementById('f_description').value.trim(),
+                category: document.getElementById('f_category').value,
+                icon: document.getElementById('f_icon').value.trim() || 'fas fa-cube',
+                stars: parseInt(document.getElementById('f_stars').value) || 0,
+                downloads: document.getElementById('f_downloads').value.trim() || '0',
+                officialSite: document.getElementById('f_officialSite').value.trim(),
+                downloadUrl: document.getElementById('f_downloadUrl').value.trim(),
+                documentation: document.getElementById('f_documentation').value.trim(),
+                github: document.getElementById('f_github').value.trim(),
+                tags: document.getElementById('f_tags').value.split(',').map(t => t.trim()).filter(t => t),
+                alternatives: document.getElementById('f_alternatives').value.split(',').map(a => a.trim()).filter(a => a)
+            };
+
+            if (!item.name || !item.description) {
+                alert('Name and description are required!');
+                return;
+            }
+
+            if (index === -1) {
+                data.software.push(item);
+            } else {
+                data.software[index] = item;
+            }
+
+            saveData(data);
+            closeModal();
+        }
+
+        function deleteSoftware(index) {
+            if (!confirm('Delete this software entry?')) return;
+            const data = getData();
+            data.software.splice(index, 1);
+            saveData(data);
+        }
+
+        function exportYAML() {
+            const data = getData();
+            const yaml = jsyaml.dump(data);
+            const blob = new Blob([yaml], { type: 'text/yaml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'software.yaml';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function importYAML() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.yaml,.yml';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const yaml = e.target.result;
+                        const data = jsyaml.load(yaml);
+                        if (data && data.software && data.software.length > 0) {
+                            if (confirm(`Import ${data.software.length} software entries? This will replace your current data.`)) {
+                                saveData(data);
+                                alert('✅ Imported successfully!');
+                            }
+                        } else {
+                            alert('❌ Invalid YAML format. Make sure it has a "software" array.');
+                        }
+                    } catch (err) {
+                        alert('❌ Error parsing YAML: ' + err.message);
+                    }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        function resetData() {
+            if (confirm('Reset to default data? This will lose all your changes!')) {
+                saveData(JSON.parse(JSON.stringify(DEFAULT_SOFTWARE)));
+                alert('✅ Reset to default data!');
+            }
+        }
+
+        // Initialize
+        renderList();
+        updateStats();
+
+        // Close modal on outside click
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+    </script>
+</body>
+</html>
