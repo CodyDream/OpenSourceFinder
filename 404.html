@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  INDEX.HTML – Entry point
+  Loads the core app, CSS, and sets up the SPA router.
+  ============================================================
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Open Source Softwares — Find What you want in open source</title>
+    <meta name="description" content="Curated list of reputable open source softwares. Find the best open source tools for your workflow." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://opensourcesoftwares.example/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Open Source Softwares" />
+    <meta property="og:description" content="Find What you want in open source — curated open source tools." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://opensourcesoftwares.example/" />
+    <meta property="og:image" content="https://picsum.photos/1200/630" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- js-yaml for YAML parsing in the browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js">
+    </script>
+
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/utilities.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+
+    <!-- ============================================================
+    BACK TO TOP BUTTON
+    ============================================================ -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <a href="#" class="logo" data-page="home">
+                <i class="fas fa-code"></i>
+                Open<span>Source</span>
+                <span class="tagline">— Find what you want</span>
+            </a>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="main-nav" id="mainNav" role="navigation" aria-label="Main navigation">
+                <!-- Nav links injected by JS from site.yaml -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    PAGE CONTAINER – All pages rendered here
+    ============================================================ -->
+    <main id="app" class="app-container">
+        <!-- Each page is rendered into this container -->
+        <div id="pageContent" class="page-content">
+            <!-- Dynamically loaded content -->
+        </div>
+    </main>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="site-footer" id="siteFooter">
+        <div class="container">
+            <div class="footer-grid" id="footerGrid">
+                <!-- Injected by JS from site.yaml -->
+            </div>
+            <div class="footer-bottom" id="footerBottom">
+                <!-- Injected by JS -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    JAVASCRIPT – Core application
+    ============================================================ -->
+    <script src="js/yaml-loader.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
