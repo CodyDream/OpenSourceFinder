@@ -113,9 +113,9 @@ footer:
       links:
         - label: hello@opensourcesoftwares.example
           url: mailto:hello@opensourcesoftwares.example
-        - label: San Francisco, CA
+        - label: Private
           url: '#'
-        - label: Response within 24h
+        - label: Response within under unknown amount of time
           url: '#'
   social:
     - label: GitHub

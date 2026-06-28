@@ -2,27 +2,35 @@
    CSS CUSTOM PROPERTIES (VARIABLES)
    ============================================================ */
 :root {
-    --color-bg: #1c1c1e;
-    --color-bg-card: #2c2c2e;
-    --color-bg-glass: rgba(44, 44, 46, 0.65);
-    --color-accent: #b87333;
-    --color-accent-light: #d49a5a;
-    --color-accent-dark: #8a5a2a;
-    --color-text: #f5f0e8;
-    --color-text-muted: #b8b0a8;
-    --color-border: rgba(184, 115, 51, 0.2);
-    --color-shadow: rgba(0, 0, 0, 0.5);
+--color-bg: #05070a;                 /* Deepest ink-black void */
+    --color-bg-card: #11151c;            /* Crisp, dark obsidian-slate tile */
+    --color-bg-glass: rgba(17, 21, 28, 0.75);
+    
+    /* INTERACTIVE STATES */
+    --color-accent: #ff6f61;             /* Primary Color: Pantone Living Coral */
+    --color-accent-light: #2affc0;       /* Hover State: High-voltage Complementary Mint */
+    --color-accent-dark: #d64e42;        /* Active/Click State: Deep crimson coral */
+    
+    /* TYPOGRAPHY & STRUCTURAL */
+    --color-text: #ffffff;               /* Pure, crisp white for text */
+    --color-text-muted: #718496;         /* Sharpened steel-gray for descriptions */
+    --color-border: rgba(255, 111, 97, 0.25); /* Tight coral border definition */
+    --color-shadow: rgba(61, 75, 100, 0.9);  /* Max-depth black shadows */
+/* FONTS: Swapping Inter for a sharper, geometric tech font */
+/* FONTS: Clean, modern, highly premium geometric type */
+    --font-primary: 'Satoshi', 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
 
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* BORDER RADIUS: Deep, sweeping modern curves (organic but structured) */
+    --radius-card: 24px;                 /* Deep, luxurious rounded corners for sections */
+    --radius-button: 100px;              /* Fully fluid, endless capsule pill buttons */
+    --radius-glass: 24px;                /* Mirroring the card curvature perfectly */
 
-    --radius-card: 16px;
-    --radius-button: 40px;
-    --radius-glass: 20px;
+    /* TRANSITIONS: Ultra-premium, silky-smooth easing curves */
+    --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);   /* Apple/Stripe style ultra-smooth deceleration */
+    --transition-bounce: 0.6s cubic-bezier(0.34, 1.56, 0.4, 1); /* Slower, high-end organic bounce */
 
-    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-
-    --max-width: 1200px;
-    --header-height: 80px;
-    --nav-height: 56px;
+    /* LAYOUT: More breathing room for a premium editorial feel */
+    --max-width: 1300px;                 /* Slightly wider canvas for modern displays */
+    --header-height: 88px;               /* Tall, confident, spacious header */
+    --nav-height: 64px;
 }

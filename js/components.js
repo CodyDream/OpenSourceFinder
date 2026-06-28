@@ -347,9 +347,9 @@ function renderContact() {
                 </div>
                 <div class="contact-wrap mt-24">
                     <div class="contact-info">
-                        <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h4>Location</h4><p>San Francisco, CA &bull; Remote-first</p></div></div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h4>Location</h4><p>Un identified </p></div></div>
                         <div class="info-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>hello@opensourcesoftwares.example</p></div></div>
-                        <div class="info-item"><i class="fas fa-clock"></i><div><h4>Response time</h4><p>Usually within 24 hours</p></div></div>
+                        <div class="info-item"><i class="fas fa-clock"></i><div><h4>Response time</h4><p>Usually within unknown amount of hours</p></div></div>
                         <div class="info-item"><i class="fas fa-globe"></i><div><h4>Social</h4><div style="display:flex;gap:10px;margin-top:4px;"><a href="#" style="color:var(--color-text-muted);font-size:1.2rem;"><i class="fab fa-github"></i></a><a href="#" style="color:var(--color-text-muted);font-size:1.2rem;"><i class="fab fa-twitter"></i></a><a href="#" style="color:var(--color-text-muted);font-size:1.2rem;"><i class="fab fa-linkedin-in"></i></a><a href="#" style="color:var(--color-text-muted);font-size:1.2rem;"><i class="fab fa-youtube"></i></a></div></div></div>
                     </div>
                     <form class="contact-form" id="contactForm" novalidate>

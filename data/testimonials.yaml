@@ -1,12 +1,24 @@
 # testimonials.yaml – community testimonials
 
 testimonials:
-  - quote: This curated list has saved me countless hours of research. Every tool I've tried from here has been top-notch.
-    author: Sarah Chen
-    role: Senior Developer, TechStart
-  - quote: I love how Open Source Softwares highlights projects that are actually maintained and have great documentation. It's my go-to resource.
-    author: Michael Rodriguez
-    role: Open Source Contributor
-  - quote: As a design lead, I've found incredible open source tools through this platform that I wouldn't have discovered otherwise. A game changer.
-    author: Priya Patel
-    role: Design Director, StudioLab
+  - quote: >-
+      It looks pretty quiet around here! We are actively looking for our very 
+      first review. If this tool has helped you find great software, be the one 
+      to break the ice!
+    author: Your Name Could Be Here
+    role: Future First Reviewer
+  - quote: >-
+      This spot is completely empty. Want to see your face, name, and project 
+      featured on our homepage? Click the link below and drop us a testimonial!
+    author: Claim This Spot
+    role: Open Source Enthusiast
+  - quote: >-
+      Nobody has left a testimonial yet, which means you have the perfect opportunity 
+      to be our legendary first reviewer. Tell us what you think!
+    author: Reserved For You
+    role: Early Adopter
+  - quote: >-
+      We are brand new and currently sitting at zero reviews. Help us change that! 
+      Your feedback helps other developers and designers discover this engine.
+    author: A Future Legend
+    role: Beta Tester
