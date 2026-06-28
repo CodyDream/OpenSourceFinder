@@ -1,17 +1,34 @@
 /**
  * yaml-loader.js
- * Loads YAML files via fetch and parses them with js-yaml.
+ * Loads YAML files with automatic base path detection.
  */
 const YAML = window.jsyaml;
 
 /**
  * Fetch and parse a YAML file.
- * @param {string} url - path to the YAML file
+ * Works both locally and on GitHub Pages subdirectories.
+ * @param {string} url - relative path (e.g., "data/software.yaml")
  * @returns {Promise<Object>} parsed data, or null on error
  */
 async function loadYaml(url) {
     try {
-        const response = await fetch(url);
+        // Detect if we're in a GitHub Pages subdirectory
+        // e.g., https://codydream.github.io/OpenSourceFinder/
+        const pathParts = window.location.pathname.split('/');
+        // If the path contains more than one segment, use the first as base
+        // This covers both root (username.github.io) and subdirectories
+        let base = '';
+        if (pathParts.length > 2 && pathParts[1] !== '') {
+            // We're in a subdirectory like /OpenSourceFinder/
+            base = '/' + pathParts[1] + '/';
+        }
+        // If you know your repo name, you can hardcode it instead:
+        // const base = '/OpenSourceFinder/';
+        
+        const fullUrl = base + url;
+        console.log(`Fetching: ${fullUrl}`);
+
+        const response = await fetch(fullUrl);
         if (!response.ok) {
             throw new Error(`HTTP ${response.status} – ${response.statusText}`);
         }
