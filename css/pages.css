@@ -72,31 +72,51 @@
     filter: blur(80px);
     opacity: 0.2;
     pointer-events: none;
-    animation: orbFloat 12s ease-in-out infinite alternate;
+    /* Changed to 'linear' or smooth 'ease-in-out' without 'alternate' 
+       because our keyframes loop perfectly back to 0% now */
+    animation: orbWigglePulse 5s ease-in-out infinite;
 }
+
 .orb-1 {
-    width: 300px;
-    height: 300px;
+    width: 350px; /* Slightly buffed size to showcase the scaling */
+    height: 350px;
     background: var(--color-accent);
     top: -10%;
     right: -5%;
-    animation-delay: 0s;
+    animation-duration: 7s; /* Different duration prevents syncing */
 }
+
 .orb-2 {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background: var(--color-accent-light);
     bottom: 10%;
     left: 60%;
-    animation-delay: 4s;
-    opacity: 0.1;
+    opacity: 0.12;
+    animation-duration: 5s; /* Slow, deep breathing */
+    animation-delay: -5s;    /* Negative delay starts it mid-movement instantly */
 }
-@keyframes orbFloat {
-    0% {
-        transform: translate(0, 0) scale(1);
+/* --- NEW MID-LEFT ORB (Balances the empty side) --- */
+.orb-3 {
+    width: 280px;
+    height: 280px;
+    background: var(--color-accent); /* Or use another complementary brand color */
+    top: 25%;
+    left: -10%;                      /* Pulls it over to anchor the left edge */
+    opacity: 0.15;
+    animation-duration: 9s;
+    animation-delay: -5s;
+}
+
+@keyframes orbWigglePulse {
+    0%, 100% {
+        transform: translate(0px, 0px) scale(1);
     }
-    100% {
-        transform: translate(40px, -30px) scale(1.1);
+    33% {
+        transform: translate(50px, -40px) scale(1.18); /* Drifts right/up, expands */
+    }
+    66% {
+        transform: translate(-30px, 20px) scale(0.85); /* Wiggles left/down, shrinks */
     }
 }
 

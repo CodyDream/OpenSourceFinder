@@ -16,6 +16,7 @@ function renderHome(testimonialsData, siteData) {
             <div class="hero-bg"></div>
             <div class="orb orb-1"></div>
             <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
             <div class="container hero-content parallax-layer" data-depth="0.15">
                 <div class="hero-badge">${hero.badge || '<i class="fas fa-star"></i> Curated for you'}</div>
                 <h1>${hero.title || 'Discover the best <span class="highlight">Open Source</span> tools'}</h1>
