@@ -57,7 +57,6 @@ function renderHome(testimonialsData, siteData) {
                     ${altHtml}
                     <div class="meta">
                         <span><i class="fas fa-star"></i> ${item.stars || '—'}</span>
-                        <span><i class="fas fa-download"></i> ${item.downloads || '—'}</span>
                         <span class="tag">${item.category || 'general'}</span>
                     </div>
                     <div class="action-links">
@@ -209,17 +208,17 @@ function renderProducts(softwareData) {
                 <div class="products-grid" id="productsGrid">
     `;
 
-    if (items.length === 0) {
+if (items.length === 0) {
         html += `<div style="grid-column:1/-1;text-align:center;padding:48px 0;color:var(--color-text-muted);">
                     <i class="fas fa-search" style="font-size:2rem;display:block;margin-bottom:12px;opacity:0.4;"></i>
                     No software found. Please check your data/software.yaml file.
                 </div>`;
     } else {
-        items.forEach(item => {
-            // Build space-separated lowercased strings for tags and alternatives
+        // Add index to loop to create unique element tracking
+        items.forEach((item, index) => { 
             const tags = (item.tags || []).map(t => t.toLowerCase()).join(' ');
             const alternatives = (item.alternatives || []).map(a => a.toLowerCase()).join(' ');
-            // Display alternatives on card (original case)
+            
             const altDisplay = (item.alternatives || []).length > 0
                 ? `<div class="alternatives" style="font-size:0.8rem;color:var(--color-text-muted);margin-top:4px;">
                         <i class="fas fa-exchange-alt" style="margin-right:4px;"></i>
@@ -238,8 +237,10 @@ function renderProducts(softwareData) {
                     <p>${item.description}</p>
                     ${altDisplay}
                     <div class="meta">
-                        <span><i class="fas fa-star"></i> ${item.stars || '—'}</span>
-                        <span><i class="fas fa-download"></i> ${item.downloads || '—'}</span>
+                        <span id="star-${index}" data-github="${item.github || ''}">
+                            <i class="fas fa-star"></i> ${item.stars || '—'}
+                        </span>
+                        
                         <span class="tag">${item.category || 'general'}</span>
                     </div>
                     <div class="action-links">
@@ -255,7 +256,7 @@ function renderProducts(softwareData) {
 
     html += `</div></div></section>`;
     container.innerHTML = html;
-
+fetchLiveGitHubStars(items);
     if (items.length > 0) {
         const filterBtns = document.querySelectorAll('.filter-btn');
         const searchInput = document.getElementById('productSearch');
@@ -290,7 +291,50 @@ function renderProducts(softwareData) {
         searchInput.addEventListener('input', applyFilters);
     }
 }
+function fetchLiveGitHubStars(items) {
+    items.forEach(async (item, index) => {
+        const starEl = document.getElementById(`star-${index}`);
+        if (!starEl) return;
+        
+        try {
+            let repoUrl = item.github ? item.github.trim() : '';
 
+            if (!repoUrl.toLowerCase().includes('github.com')) {
+                starEl.innerHTML = `<i class="fas fa-star" style="color:#ffd700;"></i> High`;
+                return;
+            }
+
+            let repoPath = repoUrl.replace(/^(https?:\/\/)?(www\.)?github\.com\//i, '');
+            repoPath = repoPath.replace(/\/$/, '').replace(/\.git$/, ''); 
+
+            const pathSegments = repoPath.split('/');
+            if (pathSegments.length < 2) {
+                starEl.innerHTML = `<i class="fas fa-star" style="color:#ffd700;"></i> High`;
+                return;
+            }
+
+            const validRepoPath = `${pathSegments[0]}/${pathSegments[1]}`;
+            const response = await fetch(`https://api.github.com/repos/${validRepoPath}`);
+            
+            if (!response.ok) {
+                starEl.innerHTML = `<i class="fas fa-star" style="color:#ffd700;"></i> High`;
+                return;
+            }
+            
+            const data = await response.json();
+            const stars = data.stargazers_count;
+
+            const formattedStars = stars >= 1000 
+                ? (stars / 1000).toFixed(1).replace(/\.0$/, '') + 'k' 
+                : stars;
+
+            starEl.innerHTML = `<i class="fas fa-star" style="color:#ffd700;"></i> ${formattedStars}`;
+
+        } catch (error) {
+            starEl.innerHTML = `<i class="fas fa-star" style="color:#ffd700;"></i> High`;
+        }
+    });
+}
 function renderAbout(siteData) {
     const container = document.getElementById('pageContent');
     const about = siteData?.about || {};
