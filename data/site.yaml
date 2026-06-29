@@ -19,13 +19,9 @@ hero:
 
 stats:
   - label: Projects listed
-    value: 2847
-  - label: Contributors
-    value: 1243
-  - label: Downloads (monthly)
-    value: 5.2
-  - label: Satisfaction rate
-    value: 98
+    value: 20
+  - label: Contributors to this database
+    value: 1
 
 featured:
   - name: VS Code
@@ -38,18 +34,28 @@ featured:
     downloadUrl: https://code.visualstudio.com/download
     documentation: https://code.visualstudio.com/docs
     github: https://github.com/microsoft/vscode
-  - name: PostgreSQL
-    description: Advanced open source relational database with a strong reputation for reliability, data integrity, and performance.
-    category: data
-    icon: fa-solid fa-database
-    stars: 98
-    downloads: 1.1M
-    officialSite: https://www.postgresql.org/
-    downloadUrl: https://www.postgresql.org/download/
-    documentation: https://www.postgresql.org/docs/
-    github: https://github.com/postgres/postgres
+  - name: Blender
+    description: The ultimate open-source 3D creation suite. Used by professionals for modeling, animation, VFX, and rendering.
+    category: design
+    icon: fa-solid fa-cube
+    stars: 94
+    downloads: 1.6M
+    officialSite: https://www.blender.org/
+    downloadUrl: https://www.blender.org/download/
+    documentation: https://docs.blender.org/
+    github: https://github.com/blender/blender
+  - name: Godot Engine
+    description: A fully-featured, cross-platform game engine for 2D and 3D games. Loved by indie developers and studios alike.
+    category: developer
+    icon: fa-solid fa-gamepad
+    stars: 87
+    downloads: 620K
+    officialSite: https://godotengine.org/
+    downloadUrl: https://godotengine.org/download
+    documentation: https://docs.godotengine.org/
+    github: https://github.com/godotengine/godot
   - name: GIMP
-    description: Professional image manipulation tool with a rich feature set for photo retouching, composition, and more.
+    description: The go-to open-source image editor. Offers professional-grade tools for photo retouching, composition, and graphic design.
     category: design
     icon: fa-solid fa-paint-brush
     stars: 73
@@ -130,5 +136,5 @@ footer:
     - label: YouTube
       icon: fab fa-youtube
       url: '#'
-  copyright: '© 2026 Open Source Softwares. Built with <i class="fas fa-heart" style="color:var(--color-accent);"></i> for the community.'
+  copyright: '© 2026 Open Source Softwares. Built with <i class="fas fa-heart" style="color:var(--color-accent);"></i> for the community. - Cody Dream Studio'
   credit: 'Open source forever &bull; <i class="fas fa-code"></i>'

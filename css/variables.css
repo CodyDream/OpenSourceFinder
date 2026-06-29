@@ -15,7 +15,7 @@
     --color-text: #ffffff;               /* Pure, crisp white for text */
     --color-text-muted: #718496;         /* Sharpened steel-gray for descriptions */
     --color-border: rgba(255, 111, 97, 0.25); /* Tight coral border definition */
-    --color-shadow: rgba(61, 75, 100, 0.9);  /* Max-depth black shadows */
+    --color-shadow: rgba(0, 0, 0, 0.9);  /* Max-depth black shadows */
 /* FONTS: Swapping Inter for a sharper, geometric tech font */
 /* FONTS: Clean, modern, highly premium geometric type */
     --font-primary: 'Satoshi', 'Cabinet Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
